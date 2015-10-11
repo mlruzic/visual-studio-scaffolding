@@ -1,0 +1,74 @@
+﻿<Window x:Class="VSPackage.ScaffolderPackage.TableScaffolder.UI.TableDesigner"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" 
+        xmlns:d="http://schemas.microsoft.com/expression/blend/2008" 
+        xmlns:core="clr-namespace:VSPackage.ScaffolderPackage.Core"
+        xmlns:local="clr-namespace:VSPackage.ScaffolderPackage.TableScaffolder.UI"
+        mc:Ignorable="d" ResizeMode="NoResize" Width="500" Height="400" ShowInTaskbar="False">
+    <Window.Resources>
+        <ResourceDictionary xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation" 
+                            xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+                            xmlns:vs_shell="clr-namespace:Microsoft.VisualStudio.PlatformUI;assembly=Microsoft.VisualStudio.Shell.12.0">
+            <Style TargetType="Label">
+                <Setter Property="Foreground" Value="{DynamicResource {x:Static vs_shell:EnvironmentColors.ToolWindowTextBrushKey}}"/>
+            </Style>
+            <Style TargetType="local:TableDesigner">
+                <Setter Property="Background" Value="{DynamicResource {x:Static vs_shell:EnvironmentColors.ToolWindowBackgroundBrushKey}}"/>
+            </Style>
+            <Style TargetType="TextBox">
+                <Setter Property="Foreground" Value="{DynamicResource {x:Static vs_shell:EnvironmentColors.ToolWindowTextBrushKey}}"/>
+                <Setter Property="Background" Value="{DynamicResource {x:Static vs_shell:EnvironmentColors.ToolWindowBackgroundBrushKey}}"/>
+            </Style>
+            <BooleanToVisibilityConverter x:Key="BoolToVis"/>
+        </ResourceDictionary>
+    </Window.Resources>
+    <DockPanel VerticalAlignment="Stretch" HorizontalAlignment="Stretch" Margin="5">
+        <Grid Height="30" DockPanel.Dock="Bottom" Width="Auto" Margin="0 20 0 0">
+            <StackPanel Orientation="Horizontal" HorizontalAlignment="Right">
+                <Button Width="100" Content="Scaffold" Margin="5 0 0 0" Command="{Binding ScaffoldCommand}"/>
+            </StackPanel>
+        </Grid>
+        <Grid DockPanel.Dock="Top" Visibility="{Binding TableDesignerVisible, Converter={StaticResource BoolToVis}}">
+            <StackPanel>
+                <Label Content="Table name:" />
+                <TextBox Name="tableName" FontSize="14" Padding="3" Text="{Binding TableName, UpdateSourceTrigger=PropertyChanged}"></TextBox>
+                <Label Content="Table columns:" Margin="0,10,0,0" />
+            </StackPanel>
+            <DataGrid x:Name="dataGrid" AutoGenerateColumns="False" CanUserAddRows="True" ItemsSource="{Binding TableColumns, UpdateSourceTrigger=PropertyChanged}" Margin="0 90 0 0">
+                <DataGrid.RowValidationRules>
+                    <core:TableColumnValidationRule ValidationStep="UpdatedValue"/>
+                </DataGrid.RowValidationRules>
+                <DataGrid.Columns>
+                    <DataGridTextColumn Binding="{Binding Name, ValidatesOnExceptions=True}" CanUserResize="False" Width="3*" Header="Column name"/>
+                    <DataGridTemplateColumn Width="3*" Header="Sql Type">
+                        <DataGridTemplateColumn.CellTemplate>
+                            <DataTemplate>
+                                <ComboBox Text="{Binding SqlType, ValidatesOnExceptions=True}" ItemsSource="{Binding Path=DataContext.SqlTypes, RelativeSource={RelativeSource AncestorType={x:Type Window}}}" Margin="1" IsEditable="True"></ComboBox>
+                            </DataTemplate>
+                        </DataGridTemplateColumn.CellTemplate>
+                    </DataGridTemplateColumn>
+                    <DataGridTemplateColumn Width="3*" Header=".NET Type">
+                        <DataGridTemplateColumn.CellTemplate>
+                            <DataTemplate>
+                                <ComboBox Text="{Binding DotNetType, ValidatesOnExceptions=True}" ItemsSource="{Binding Path=DataContext.DotNetTypes, RelativeSource={RelativeSource AncestorType={x:Type Window}}}" Margin="1" IsEditable="True"></ComboBox>
+                            </DataTemplate>
+                        </DataGridTemplateColumn.CellTemplate>
+                    </DataGridTemplateColumn>
+                </DataGrid.Columns>
+            </DataGrid>
+        </Grid>
+        <Grid DockPanel.Dock="Top" Visibility="{Binding ScaffoldingLogVisible, Converter={StaticResource BoolToVis}}">
+            <DockPanel>
+                <Label Content="Scaffolding log" DockPanel.Dock="Top"></Label>
+                <RichTextBox IsReadOnly="True" x:Name="log" VerticalAlignment="Stretch" HorizontalAlignment="Stretch" DockPanel.Dock="Top">
+                    <RichTextBox.Resources>
+                        <Style TargetType="{x:Type Paragraph}">
+                            <Setter Property="Margin" Value="0"/>
+                        </Style>
+                    </RichTextBox.Resources>
+                </RichTextBox>
+            </DockPanel>
+        </Grid>
+    </DockPanel>
+</Window>
