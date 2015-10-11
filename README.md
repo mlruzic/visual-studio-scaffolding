@@ -27,3 +27,6 @@ Successfully scaffolded 15 files
 ```
 
 You can modify or create new templates in `Tools -> Options -> Scaffolder`
+
+## Download
+For now, extension (beta) is available here: https://www.dropbox.com/s/vzsbe7v4o960845/ScaffolderPackage.vsix?dl=0
