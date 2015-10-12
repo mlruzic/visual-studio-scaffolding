@@ -2,11 +2,9 @@
 {
     using System.Web.Mvc;
     using AttributeRouting.Web.Mvc;
-    using Api;
     using Service;
     using Models;
     using ShoutEm.Api;
-    using ShoutEm.BusinessEntities;
     using ShoutEmBase.Controllers;
     using RoutePrefixAttribute = AttributeRouting.RoutePrefixAttribute;
 

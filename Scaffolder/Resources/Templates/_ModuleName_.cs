@@ -1,9 +1,6 @@
-﻿namespace Se.Analytics
+﻿namespace $ModuleNamespace$
 {
     using Autofac;
-    using Clients;
-    using Exceptions;
-    using Controllers;
     using Se.Core.Api;
     using DataAccess;
     using Service;

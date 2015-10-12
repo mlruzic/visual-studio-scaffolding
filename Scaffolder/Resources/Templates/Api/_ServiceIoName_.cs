@@ -2,8 +2,7 @@
 {
     using $ModuleNamespace$.Service;
     using Se.Core.Api;
-    using System;
-
+    
     public class $ServiceIoName$ : IoBase
     {
         $TableColumns: {col

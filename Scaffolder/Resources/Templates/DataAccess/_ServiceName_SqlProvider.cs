@@ -3,8 +3,6 @@
     using $ModuleNamespace$.Models;
     using Se.Core.DataAccess.Sql;
     using Se.Core.Extensions.IDataRecord;
-    using System;
-    using System.Collections.Generic;
     using System.Data;
 
     public class $ServiceName$SqlProvider : CrudSqlProvider<$ServiceModelName$, long>, I$ServiceName$Provider
@@ -19,7 +17,7 @@
             return new $ServiceModelName$
             {
                 $TableColumns: { col 
-                | $col.Name$ = r.TryGet<$col.DotNetType$>("$col.Name$");}; separator="\n"$
+                | $col.Name$ = r.TryGet<$col.DotNetType$>("$col.Name$")}; separator=",\n"$
             };
         }
 

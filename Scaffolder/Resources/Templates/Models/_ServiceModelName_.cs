@@ -2,7 +2,6 @@
 {
     using Se.Core.Models;
     using ShoutEm.Common.Cloning;
-    using System;
 
     public class $ServiceModelName$ : ModelBase<long>, IShallowCloneable<$ServiceModelName$>
     {
