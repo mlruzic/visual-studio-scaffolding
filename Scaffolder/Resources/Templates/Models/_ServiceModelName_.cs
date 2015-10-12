@@ -5,7 +5,7 @@
 
     public class $ServiceModelName$ : ModelBase<long>, IShallowCloneable<$ServiceModelName$>
     {
-        $TableColumns: {col 
+        $rest(TableColumns): {col 
         | public $col.DotNetType$ $col.Name$ { get; set; \}}; separator="\n\n"$
 
         public $ServiceModelName$ ShallowClone()
