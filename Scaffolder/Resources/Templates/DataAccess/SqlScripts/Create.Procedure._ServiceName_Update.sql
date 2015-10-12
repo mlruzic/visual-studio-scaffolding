@@ -3,7 +3,7 @@ EXEC dbo.DropProcedure '$TableName$Update'
 GO
 CREATE PROCEDURE [$TableSchema$].[$TableName$Update]
     $TableColumns: { col 
-    | @$col.Name$ [$col.SqlType$]}; separator=",\n"$
+    | @$col.Name$ $col.SqlType$}; separator=",\n"$
 AS BEGIN
     UPDATE [$TableSchema$].[$TableName$]
     SET 

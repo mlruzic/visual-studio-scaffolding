@@ -18,7 +18,7 @@
         {
             return new $ServiceModelName$
             {
-                $options.TableColumns: { col 
+                $TableColumns: { col 
                 | $col.Name$ = r.TryGet<$col.DotNetType$>("$col.Name$");}; separator="\n"$
             };
         }
@@ -30,7 +30,7 @@
 
         protected override void AddCommonModelParameters(IDbCommand cmd, $ServiceModelName$ model)
         {
-            $options.TableColumns: { col 
+            $TableColumns: { col 
             | DataAccessHelper.AddParameter(cmd, "@$col.Name$", model.$col.Name$);}; separator="\n"$
         }
     }
