@@ -29,4 +29,4 @@ Successfully scaffolded 15 files
 You can modify or create new templates in `Tools -> Options -> Scaffolder`
 
 ## Download
-For now, extension (beta) is available here: https://www.dropbox.com/s/vzsbe7v4o960845/ScaffolderPackage.vsix?dl=0
+https://gallery.msdn.microsoft.com/71e1809f-f1d4-4f20-a393-53b711c9c93a
