@@ -1,7 +1,7 @@
 ﻿<?xml version="1.0" encoding="utf-8"?>
 <PackageManifest Version="2.0.0" xmlns="http://schemas.microsoft.com/developer/vsx-schema/2011" xmlns:d="http://schemas.microsoft.com/developer/vsx-schema-design/2011">
   <Metadata>
-    <Identity Id="5ba0db21-702d-4787-811b-055b9240898d" Version="1.0" Language="en-US" Publisher="Mladen Ruzic" />
+    <Identity Id="5ba0db21-702d-4787-811b-055b9240898d" Version="1.0.1" Language="en-US" Publisher="Mladen Ruzic" />
     <DisplayName>Scaffolder</DisplayName>
     <Description>Generate some boilerplate code when creating new tables in DB</Description>
     <Icon>se.png</Icon>
