@@ -36,26 +36,25 @@
             {
                 return templateDefinitions;
             }
-
-            set
-            {
-                templateDefinitions.Clear();
-                templateDefinitions.AddRange(value);
-                if(templateDefinitions.Count == 0)
-                {
-                    templateDefinitions.AddRange(defaultTemplates);
-                }
-                SaveSettings();
-            }
+            //set
+            //{
+            //    templateDefinitions.Clear();
+            //    templateDefinitions.AddRange(value);
+            //    if(templateDefinitions.Count == 0)
+            //    {
+            //        templateDefinitions.AddRange(defaultTemplates);
+            //    }
+            //    SaveSettings();
+            //}
         }
 
         [ImportingConstructor]
         public TemplateProvider(SVsServiceProvider vsServiceProvider)
         {
-            var shellSettingsManager = new ShellSettingsManager(vsServiceProvider);
-            writableSettingsStore = shellSettingsManager.GetWritableSettingsStore(SettingsScope.UserSettings);
+            //var shellSettingsManager = new ShellSettingsManager(vsServiceProvider);
+            //writableSettingsStore = shellSettingsManager.GetWritableSettingsStore(SettingsScope.UserSettings);
 
-            LoadTemplates();
+            //LoadTemplates();
         }
 
         /// <summary>
@@ -63,18 +62,18 @@
         /// </summary>
         private void LoadTemplates()
         {
-            try
-            {
-                if (writableSettingsStore.PropertyExists(CollectionPath, PropertyName))
-                {
-                    var json = writableSettingsStore.GetString(CollectionPath, PropertyName);
-                    TemplateDefinitions = DeserializeCollection(json);
-                }
-            }
-            catch (Exception ex)
-            {
-                Debug.Fail(ex.Message);
-            }
+            //try
+            //{
+            //    if (writableSettingsStore.PropertyExists(CollectionPath, PropertyName))
+            //    {
+            //        var json = writableSettingsStore.GetString(CollectionPath, PropertyName);
+            //        TemplateDefinitions = DeserializeCollection(json);
+            //    }
+            //}
+            //catch (Exception ex)
+            //{
+            //    Debug.Fail(ex.Message);
+            //}
         }
 
         /// <summary>
@@ -82,20 +81,20 @@
         /// </summary>
         private void SaveSettings()
         {
-            try
-            {
-                if (!writableSettingsStore.CollectionExists(CollectionPath))
-                {
-                    writableSettingsStore.CreateCollection(CollectionPath);
-                }
+            //try
+            //{
+            //    if (!writableSettingsStore.CollectionExists(CollectionPath))
+            //    {
+            //        writableSettingsStore.CreateCollection(CollectionPath);
+            //    }
 
-                string json = JsonConvert.SerializeObject(TemplateDefinitions);
-                writableSettingsStore.SetString(CollectionPath, PropertyName, json);
-            }
-            catch (Exception ex)
-            {
-                Debug.Fail(ex.Message);
-            }
+            //    string json = JsonConvert.SerializeObject(TemplateDefinitions);
+            //    writableSettingsStore.SetString(CollectionPath, PropertyName, json);
+            //}
+            //catch (Exception ex)
+            //{
+            //    Debug.Fail(ex.Message);
+            //}
         }
 
         private IEnumerable<TemplateDefinition> DeserializeCollection(string json)

@@ -27,7 +27,7 @@
     [ProvideMenuResource("Menus.ctmenu", 1)]
     [Guid(GuidList.guidSkafolderPkgString)]
     [ProvideAutoLoad(UIContextGuids.SolutionExists)]
-    [ProvideOptionPage(typeof(SettingsPage),"Scaffolder", "Scaffolder", 0, 0, true)]
+    //[ProvideOptionPage(typeof(SettingsPage),"Scaffolder", "Scaffolder", 0, 0, true)]
     //[ProvideToolWindow(typeof(TableScaffolderToolWindow))]
     public sealed class SkafolderPackage : Package
     {

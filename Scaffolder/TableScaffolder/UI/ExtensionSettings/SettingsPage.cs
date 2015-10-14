@@ -36,14 +36,14 @@
 
         protected override void OnApply(PageApplyEventArgs args)
         {
-            if (args.ApplyBehavior == ApplyKind.Apply)
-            {
-                settingsPageControl.CommitChanges();
+            //if (args.ApplyBehavior == ApplyKind.Apply)
+            //{
+            //    settingsPageControl.CommitChanges();
 
-                // Save settings
-                var templateProvider = GetTemplateProvider();
-                templateProvider.TemplateDefinitions = settingsPageControl.Templates;
-            }
+            //    // Save settings
+            //    var templateProvider = GetTemplateProvider();
+            //    templateProvider.TemplateDefinitions = settingsPageControl.Templates;
+            //}
 
             base.OnApply(args);
         }

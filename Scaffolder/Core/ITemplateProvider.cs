@@ -4,6 +4,6 @@
 
     public interface ITemplateProvider
     {
-        IEnumerable<TemplateDefinition> TemplateDefinitions { get; set; }
+        IEnumerable<TemplateDefinition> TemplateDefinitions { get; }
     }
 }
