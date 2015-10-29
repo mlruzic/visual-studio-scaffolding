@@ -15,7 +15,7 @@ namespace $ModuleNamespace$.Api
     using ShoutEmBase.Controllers;
     using RoutePrefixAttribute = AttributeRouting.RoutePrefixAttribute;
 
-    [RoutePrefix("{nid:int}/$ModuleName; format="lower"$/objects/$ServiceName$")]
+    [RoutePrefix("{applicationId:int}/$SelectedProjectItem; format="lower"$/objects/$ServiceName$")]
     public class $ControllerName$ :
         RestController<$ServiceName$, $ServiceModelName$, long, $ServiceIoName$>
     {

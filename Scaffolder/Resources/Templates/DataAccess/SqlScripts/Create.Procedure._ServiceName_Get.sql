@@ -6,7 +6,7 @@
 -- </auto-generated>
 --------------------------------------------------------------------------------
 PRINT '   $TableName$Get ...'
-EXEC dbo.DropProcedure '$TableName$Get'
+EXEC dbo.DropProcedure @schema='$TableSchema$', @name='$TableName$Get'
 GO
 CREATE PROCEDURE [$TableSchema$].[$TableName$Get]
   @Id bigint

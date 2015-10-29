@@ -18,16 +18,32 @@
             Add("Version", version);
             Add("DateTimeNow", DateTime.Now.ToString(dateTimeFormat));
             Add("DateTimeUtcNow", DateTime.UtcNow.ToString(dateTimeFormat));
+            Add("SelectedProjectItem", projectItemName);
 
             Add("TableName", tableName);
             Add("TableColumns", tableColumns);
-            Add("TableSchema", projectItemName);
+            Add("TableSchema", projectItemName.StartWithLowercase());
             Add("ModuleName", string.Format("{0}Module", projectItemName));
             Add("ModuleNamespace", string.Format("Se.{0}", projectItemName));
             Add("ServiceName", tableName);
             Add("ServiceIoName", string.Format("{0}Io", tableName));
             Add("ServiceModelName", string.Format("{0}Model", tableName));
             Add("ControllerName", string.Format("{0}Controller", tableName));
+        }
+    }
+
+    static class StringExt
+    {
+        public static string StartWithLowercase(this string str){
+            if (string.IsNullOrEmpty(str))
+            {
+                return string.Empty;
+            }
+            if (str.Length == 1)
+            {
+                return str.ToLower();
+            }
+            return char.ToLower(str[0]) + str.Substring(1);
         }
     }
 }

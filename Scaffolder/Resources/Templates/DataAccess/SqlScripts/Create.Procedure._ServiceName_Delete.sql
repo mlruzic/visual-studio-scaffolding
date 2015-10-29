@@ -6,7 +6,7 @@
 -- </auto-generated>
 --------------------------------------------------------------------------------
 PRINT '   $TableName$Delete ...'
-EXEC dbo.DropProcedure '$TableName$Delete'
+EXEC dbo.DropProcedure @schema='$TableSchema$', @name='$TableName$Delete'
 GO
 CREATE PROCEDURE [$TableSchema$].[$TableName$Delete]
     @Id bigint

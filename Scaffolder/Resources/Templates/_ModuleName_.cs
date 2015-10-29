@@ -18,11 +18,11 @@ namespace $ModuleNamespace$
         protected override void Load(ContainerBuilder builder)
         {
             builder.RegisterType<$ServiceName$>();
-            builder.RegisterType<$ServiceIoName$> ();
+            builder.RegisterType<$ServiceIoName$>();
 
-            builder.RegisterType<$ServiceName$SqlProvider> ().AsSelf().AsImplementedInterfaces().SingleInstance();
-            builder.RegisterType<$ServiceName$Repository> ().AsImplementedInterfaces().SingleInstance();
-            builder.RegisterController<$ServiceName$Controller> ();
+            builder.RegisterType<$ServiceName$SqlProvider>().AsSelf().AsImplementedInterfaces().SingleInstance();
+            builder.RegisterType<$ServiceName$Repository>().AsImplementedInterfaces().SingleInstance();
+            builder.RegisterController<$ServiceName$Controller>();
         }
     }
 }

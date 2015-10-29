@@ -35,7 +35,7 @@ namespace $ModuleNamespace$.DataAccess
 
         protected override void AddCommonModelParameters(IDbCommand cmd, $ServiceModelName$ model)
         {
-            $TableColumns: { col 
+            $rest(TableColumns): { col 
             | DataAccessHelper.AddParameter(cmd, "@$col.Name$", model.$col.Name$);}; separator="\n"$
         }
     }

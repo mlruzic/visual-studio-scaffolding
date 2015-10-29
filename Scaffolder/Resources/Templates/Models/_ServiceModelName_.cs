@@ -7,9 +7,11 @@
 //------------------------------------------------------------------------------
 namespace $ModuleNamespace$.Models
 {
+    using System;
     using Se.Core.Models;
     using ShoutEm.Common.Cloning;
 
+    [Serializable]
     public class $ServiceModelName$ : ModelBase<long>, IShallowCloneable<$ServiceModelName$>
     {
         $rest(TableColumns): {col 

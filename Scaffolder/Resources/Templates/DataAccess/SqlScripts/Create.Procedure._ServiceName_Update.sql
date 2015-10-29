@@ -6,7 +6,7 @@
 -- </auto-generated>
 --------------------------------------------------------------------------------
 PRINT '   $TableName$Update ...'
-EXEC dbo.DropProcedure '$TableName$Update'
+EXEC dbo.DropProcedure @schema='$TableSchema$', @name='$TableName$Update'
 GO
 CREATE PROCEDURE [$TableSchema$].[$TableName$Update]
     $TableColumns: { col 

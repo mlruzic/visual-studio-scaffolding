@@ -6,7 +6,7 @@
 -- </auto-generated>
 --------------------------------------------------------------------------------
 PRINT '   $TableName$Insert ...'
-EXEC dbo.DropProcedure '$TableName$Insert'
+EXEC dbo.DropProcedure @schema='$TableSchema$', @name='$TableName$Insert'
 GO
 CREATE PROCEDURE [$TableSchema$].[$TableName$Insert]
     $rest(TableColumns): { col 
