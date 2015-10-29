@@ -6,6 +6,9 @@
     using System.Windows.Input;
     using Microsoft.VisualStudio.ComponentModelHost;
     using System.Windows.Controls;
+    using System.ComponentModel;
+    using System.Windows.Threading;
+    using System;
 
     public class TableDesignerViewModel :ViewModel
     {
@@ -109,7 +112,28 @@
 
         private void StartScaffolding(object obj)
         {
-            var logger = new RichTextBoxLogger(log);
+            var worker = new BackgroundWorker();
+
+            worker.DoWork += new DoWorkEventHandler(StartScaffoldingAsync);
+            worker.WorkerReportsProgress = true;
+            worker.ProgressChanged += scaffoldingWorker_ProgressChanged;
+
+            worker.RunWorkerAsync();
+        }
+
+
+        private void scaffoldingWorker_ProgressChanged(object sender, ProgressChangedEventArgs e)
+        {
+            var action = e.UserState as Action;
+            if (action != null)
+            {
+                action();
+            }
+        }
+
+        private void StartScaffoldingAsync(Object sender, EventArgs e)
+        {
+            var logger = new RichTextBoxLogger(log, sender as BackgroundWorker);
             var templateVars = new TemplateVars(TableName, TableColumns, ProjectItem.Name);
             var templateProvider = GetTemplateProvider();
             var codeCommentator = new CodeCommentator();
