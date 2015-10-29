@@ -26,7 +26,5 @@ Creating file: AnalyticsModule.cs
 Successfully scaffolded 15 files
 ```
 
-You can modify or create new templates in `Tools -> Options -> Scaffolder`
-
 ## Download
 https://gallery.msdn.microsoft.com/71e1809f-f1d4-4f20-a393-53b711c9c93a
